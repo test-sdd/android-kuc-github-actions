@@ -52,7 +52,7 @@ exports.config = {
         browserName: 'Chrome',
         automationName: 'appium',
         deviceName: 'Nexus 6',
-        platformVersion: '11.0',
+        platformVersion: '10.0',
         platformName: 'Android',
         ensureWebviewsHavePages: true,
         nativeWebScreenshot: true,
