@@ -31,8 +31,8 @@ jobs:
     - name: run emulator
       uses: reactivecircus/android-emulator-runner@v2.13.0
       with:
-        api-level: 29
-        profile: Nexus 6
+        api-level: 28
+        profile: Pixel 4
         target: google_apis 
         script: ./gradlew connectedCheck
       
