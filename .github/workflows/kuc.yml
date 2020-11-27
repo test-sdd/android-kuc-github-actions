@@ -29,10 +29,12 @@ jobs:
     - name: install package
       run:  npm install
     - name: run emulator
-      run: |
-            sdkmanager --install "system-images;android-29;default;x86"
-            echo "no" | avdmanager --verbose create avd --force --name "Nexus6" --device "Nexus 6" --package "system-images;android-29;default;x86" --tag "default" --abi "x86"
-            emulator @generic_10 &
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        profile: Nexus 6
+        target: google_apis 
+        script: ./gradlew connectedCheck
       
     - name: Run Appium Server
       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
