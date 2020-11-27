@@ -35,6 +35,7 @@ jobs:
       with:
         profile: Nexus 6  
         api-level: 29
+        script: ./gradlew connectedCheck 
     - name: Run Appium Server
       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
     - name: Run test
