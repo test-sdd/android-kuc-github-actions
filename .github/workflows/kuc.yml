@@ -30,13 +30,12 @@ jobs:
       run:  npm install
     - name: Run Appium Server
       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: setup
-      uses: reactivecircus/android-emulator-runner@v2.13.0
+    - uses: actions/checkout@v1
+    - uses: malinskiy/action-android/emulator-run-cmd@release/0.0.8
       with:
-        profile: Nexus 6  
-        api-level: 29
-        script: ./gradlew connectedCheck
+         cmd: ./gradlew integrationTest
+         api: 29
+         tag: default
+         abi: x86
     - name: Run test
       run: npm run test
