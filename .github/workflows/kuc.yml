@@ -24,8 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
     - name: install package
       run:  npm install
     - name: Run Appium Server
@@ -36,5 +36,5 @@ jobs:
         api-level: 29
         script: ./gradlew connectedCheck
         profile: Nexus 6
-    - name: Run test
+    - name: Run test script
       run: npm run test
