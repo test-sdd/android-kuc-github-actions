@@ -51,5 +51,8 @@ jobs:
             sleep 5
           done
       # Poll for Appium Server to Start
+    - name: Build with Gradle
+      run: gradle cleanTest test --tests "com.example.chrome.MobileChromeTest"
+      continue-on-error: true
     - name: Run test script
       run: npm run test
