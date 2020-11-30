@@ -60,6 +60,7 @@ exports.config = {
         port: 4723,
         noReset: true,
         fullReset: false,
+        appPackage: 'com.android.chrome',
         defaultCommandTimeout: 180000,
         newCommandTimeout: 30 * 60000
     },
