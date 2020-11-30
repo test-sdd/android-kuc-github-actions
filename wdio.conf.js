@@ -52,7 +52,7 @@ exports.config = {
         browserName: 'Chrome',
         automationName: 'UiAutomator2',
         deviceName: 'Nexus 6',
-        platformVersion: '11.0',
+        platformVersion: '9.0',
         platformName: 'Android',
         ensureWebviewsHavePages: true,
         nativeWebScreenshot: true,
