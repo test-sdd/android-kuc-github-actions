@@ -58,8 +58,7 @@ exports.config = {
         nativeWebScreenshot: true,
         path: '/wd/hub',
         port: 4723,
-        noReset: true,
-        fullReset: false,
+        defaultCommandTimeout: 180000,
         newCommandTimeout: 30 * 60000
     },
    ],
