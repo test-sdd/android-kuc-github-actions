@@ -28,12 +28,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Run Appium Tests
-      uses: reactivecircus/android-emulator-runner@v1 # install and create the Emulator
+      uses: reactivecircus/android-emulator-runner@v2 # install and create the Emulator
       with:
         api-level: 28
         arch: x86_64
         profile: Nexus 6
-        script: ./gradlew test --info # running our test with info to check the results
+        script: ./gradlew connectedCheck # running our test with info to check the results
     - name: Run Appium Server
       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
     - name: install package
