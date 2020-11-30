@@ -49,7 +49,7 @@ exports.config = {
     port: 4723,
     capabilities: [{
         maxInstances: 10,
-        browserName: 'Chrome',
+        // browserName: 'Chrome',
         automationName: 'UiAutomator2',
         deviceName: 'Nexus 6',
         platformVersion: '10.0',
@@ -60,7 +60,6 @@ exports.config = {
         port: 4723,
         noReset: true,
         fullReset: false,
-        appPackage: 'com.android.chrome',
         defaultCommandTimeout: 180000,
         newCommandTimeout: 30 * 60000
     },
