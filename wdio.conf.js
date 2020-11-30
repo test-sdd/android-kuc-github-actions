@@ -61,7 +61,8 @@ exports.config = {
         noReset: true,
         fullReset: false,
         defaultCommandTimeout: 180000,
-        newCommandTimeout: 30 * 60000
+        newCommandTimeout: 30 * 60000,
+        mobileDeepLink: {url: "https://www.hbr0a.kintone.com/", package: "com.android.chrome"}
     },
    ],
     //
