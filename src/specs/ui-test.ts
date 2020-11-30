@@ -2,7 +2,7 @@ import { expect } from 'chai';
 
 describe('Index', () => {
   before(() => {
-    browser.url('https://hbr0a.kintone.com');
+    browser.url('https://hbr0a.kintone.com/k/m/451');
     browser.$("div.form-username-slash input[name='username']").setValue("khiem");
     browser.$("div.form-password-slash input[name='password']").setValue("khiem");
     $('input.login-button').click();
