@@ -52,7 +52,7 @@ exports.config = {
         browserName: 'Chrome',
         automationName: 'appium',
         deviceName: 'Nexus 6',
-        platformVersion: '10.0',
+        platformVersion: '9.0',
         platformName: 'Android',
         ensureWebviewsHavePages: true,
         nativeWebScreenshot: true,
@@ -161,16 +161,16 @@ exports.config = {
             blockOutStatusBar: true,
             blockOutToolBar: true
         }],
-        ['appium', {
-            args: {
-                debugLogSpacing: true,
-                platformName: 'Android',
-                browserName: 'Chrome',
-                automationName: 'UiAutomator1',
-                deviceName: 'android_chrome',
-                platformVersion: '8.0',
-            }
-        }]
+        // ['appium', {
+        //     args: {
+        //         debugLogSpacing: true,
+        //         platformName: 'Android',
+        //         browserName: 'Chrome',
+        //         automationName: 'UiAutomator1',
+        //         deviceName: 'android_chrome',
+        //         platformVersion: '8.0',
+        //     }
+        // }]
     ],
     // appium: {
     //     waitStartTime: 10000,
