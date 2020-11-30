@@ -40,6 +40,5 @@
     "wdio-image-comparison-service": "^1.13.6"
   },
   "dependencies": {
-    "appium": "^1.18.3"
   }
 }

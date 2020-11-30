@@ -50,14 +50,16 @@ exports.config = {
     capabilities: [{
         maxInstances: 10,
         browserName: 'Chrome',
-        automationName: 'appium',
+        automationName: 'UiAutomator2',
         deviceName: 'Nexus 6',
-        platformVersion: '9.0',
+        platformVersion: '11.0',
         platformName: 'Android',
         ensureWebviewsHavePages: true,
         nativeWebScreenshot: true,
         path: '/wd/hub',
         port: 4723,
+        noReset: true,
+        fullReset: false,
         newCommandTimeout: 30 * 60000
     },
    ],
