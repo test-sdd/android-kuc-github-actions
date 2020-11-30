@@ -10,31 +10,40 @@ on:
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
+    runs-on: macOS-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v1
-    - name: install package
-      run:  npm install
-    - name: run emulator
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-        profile: Nexus 6
-        script: ./gradlew connectedCheck
-    - name: Run Appium Server
+      # Clean Packages & Install Dependencies 
+    - name: Clean Packages 
+      run: |
+          rm -rf node_modules
+          npm cache clean --force
+          rm -rf package-lock.json
+    - name: Run Android Emulator
+      run: |
+          echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;default;x86'
+          echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test_device -k 'system-images;android-28;default;x86' --force --device "Nexus 6"
+          echo $ANDROID_HOME/emulator/emulator -list-avds
+          echo "Starting emulator"
+          nohup $ANDROID_HOME/emulator/emulator -avd test_device -no-snapshot > /dev/null 2>&1 &
+          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done; input keyevent 82'
+          $ANDROID_HOME/platform-tools/adb devices
+          echo "Emulator started"
+         # Start the Appium Server
+    - name: Install Repo and Dependencies
+      run: |
+          npm install
+    - name: Start the Appium Server
       run: ./node_modules/.bin/appium --log-timestamp --log-no-colors --allow-insecure chromedriver_autodownload > appium.log &
-    - name: Run test
+      # Poll for Appium Server to Start
+    - name: Run test script
       run: npm run test
