@@ -56,7 +56,7 @@ exports.config = {
     'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
     'appium:newCommandTimeout': 180000,
-    nativeWebScreenshot: true,
+    nativeWebScreenshot: true
   }],
   //
   // ===================
