@@ -1,5 +1,10 @@
 import { expect } from 'chai';
 
+// config when testing locally
+// process.env.DOMAIN = 'test.cybozu.com'
+// process.env.USERNAME = 'test'
+// process.env.PASSWORD = 'test'
+
 const appID = 717;
 describe('Index', () => {
   before(() => {
