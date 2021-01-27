@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 
 // config when testing locally
-// process.env.DOMAIN = 'test.cybozu.com'
-// process.env.USERNAME = 'test'
-// process.env.PASSWORD = 'test'
+process.env.DOMAIN = 'sdd-demo.cybozu.com'
+process.env.USERNAME = 'hau'
+process.env.PASSWORD = 'qasd'
 
 const appID = 717;
 describe('Index', () => {
@@ -82,21 +82,21 @@ describe('Detail', () => {
   });
 });
 
-describe('Edit', () => {
-  before(() => {
-     browser.url(`https://${process.env.DOMAIN}/k/m/${appID}/show?record=1&prev=0&next=0&view=20`);
-     $('.gaia-mobile-v2-app-record-showtoolbar-editrecord-border').click();
-  });
+// describe('Edit', () => {
+//   before(() => {
+//      browser.url(`https://${process.env.DOMAIN}/k/m/${appID}/show?record=1&prev=0&next=0&view=20`);
+//      $('.gaia-mobile-v2-app-record-showtoolbar-editrecord-border').click();
+//   });
 
-  it('should save some screenshots', () => {
-      browser.saveFullPageScreen('Edit-fullPage', { });
+//   it('should save some screenshots', () => {
+//       browser.saveFullPageScreen('Edit-fullPage', { });
 
-      // browser.saveTabbablePage('Edit-tabbable', { /* some options, use the same options as for saveFullPageScreen */ });
-  });
+//       // browser.saveTabbablePage('Edit-tabbable', { /* some options, use the same options as for saveFullPageScreen */ });
+//   });
 
-  it('should compare successful with a baseline', () => {
-      expect(browser.checkFullPageScreen('Edit-fullPage', { })).to.equal(0);
+//   it('should compare successful with a baseline', () => {
+//       expect(browser.checkFullPageScreen('Edit-fullPage', { })).to.equal(0);
 
-      // expect(browser.checkTabbablePage('Edit-tabbable', { /* some options, use the same options as for checkFullPageScreen */ })).toEqual(0);
-  });
-});
+//       // expect(browser.checkTabbablePage('Edit-tabbable', { /* some options, use the same options as for checkFullPageScreen */ })).toEqual(0);
+//   });
+// });
